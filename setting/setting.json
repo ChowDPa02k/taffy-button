@@ -1,0 +1,53 @@
+{
+  "name": {
+    "CN": {
+      "title": "语音按钮",
+      "fullName": ""
+    },
+    "EN": {
+      "title": "Voives Button",
+      "fullName": ""
+    }
+  },
+  "readme": "",
+  "header": {
+    "icon": "🍣",
+    "youtube": "",
+    "twitter": "",
+    "bilibili": ""
+  },
+  "link": [
+    {
+      "name": "Hiiro按钮",
+      "url": "https: //hiiro.club/",
+      "background": "#F5C1BB"
+    },
+    {
+      "name": "七奈按钮",
+      "url": "https: //kaguranana.moe/",
+      "background": "#c4afd0"
+    }
+  ],
+  "footer": {
+    "author": [
+      {
+        "name": "Blacktunes",
+        "url": "https://github.com/blacktunes"
+      }
+    ],
+    "info": [
+      ""
+    ],
+    "githubUrl": "https://github.com/blacktunes/voices-button"
+  },
+  "console": {
+    "text": "https://github.com/blacktunes/voices-button",
+    "size": "",
+    "color": "",
+    "img": "",
+    "imgWidth": "",
+    "imgHeight": ""
+  },
+  "mediaSession": "",
+  "CDN": ""
+}
