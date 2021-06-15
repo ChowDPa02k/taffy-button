@@ -1,5 +1,8 @@
 <template>
-  <div class="wrapper" :class="{ lowlight, highlight, disable }">
+  <div
+    class="wrapper"
+    :class="{ lowlight, highlight: highlight || playing, disable, playing }"
+  >
     <NewIcon class="new-icon" v-if="newIcon" />
     <img class="pic" v-if="showPic" :src="showPic" alt="" />
     <div class="left" />
@@ -15,7 +18,7 @@
 import { Ref, ref, watch } from 'vue'
 import NewIcon from './NewIcon.vue'
 
-const watchProgress = (progressRef) => {
+const watchProgress = (progressRef: Ref<HTMLElement>) => {
   const progress = ref(0)
   const playing = ref(false)
 
@@ -153,6 +156,8 @@ export default {
     position absolute
     top -12px
     right -15px
+    opacity 1
+    transition opacity 0.25s
 
   .pic
     position absolute
@@ -286,6 +291,9 @@ export default {
       transition opacity 0.5s
 
     &:hover
+      .new-icon
+        opacity 0
+
       .pic
         opacity 1
         box-shadow 0 5px 10px 0 $main-color

@@ -114,10 +114,6 @@ a
     display flex
     flex-wrap wrap
 
-    .btn
-      margin 5px
-      transition background 0.2s
-
 @media only screen and (max-width 600px)
   .index
     width 95%
