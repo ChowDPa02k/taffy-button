@@ -33,7 +33,7 @@ $active-color = #93a3b3
 
 - **setting.json**项目配置
 
-```json
+```jsonc
 {
   "name": {
     "CN": {
@@ -113,7 +113,7 @@ $active-color = #93a3b3
 
 - **category.json** 分类列表
 
-```json
+```jsonc
 [
   {
     // 分类命名
@@ -175,6 +175,7 @@ $active-color = #93a3b3
 ### 说明
 
 - 点击标题可显示**隐藏**
+- 可以的话，请不要删除默认友链
 
 ### LICENSE
 
