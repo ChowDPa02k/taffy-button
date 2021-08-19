@@ -20,10 +20,10 @@
           </template>
         </div>
         <div>
-            Created by
+            Powered by
             <a href="https://github.com/blacktunes/voices-button-cli"
               >voices-button-cli</a
-            >{{ " / "
+            >{{ " | "
             }}<a href="https://github.com/blacktunes/hiiro-button"
               >hiiro-button</a
             >
