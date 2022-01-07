@@ -50,8 +50,8 @@ $active-color = #93a3b3
   // Readme组件显示文字，支持HTML
   "readme": "",
   "header": {
-    // Header图标
-    "icon": "🍣",
+    // Header图标URL
+    "icon": "img/logo.svg",
     // 外链按钮地址
     "youtube": "",
     "twitter": "",
@@ -132,7 +132,7 @@ $active-color = #93a3b3
 
 - 语音列表文件可任意命名
 
-```json
+```jsonc
 [
   {
     // 语音命名

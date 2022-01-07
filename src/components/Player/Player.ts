@@ -1,8 +1,10 @@
 import Setting from '@/../setting/setting.json'
 import mitt from '@/assets/script/mitt'
-import { EVENT, INFO_I18N, Mark, Player, PlayerList, PlaySetting, QUERY, SearchData, Translate, Voices, VoicesCategory, VoicesItem, VoicesOrigin } from '@/assets/script/type'
+import { EVENT, INFO_I18N, Mark, Player, PlayerList, QUERY, SearchData, Translate, Voices, VoicesCategory, VoicesItem, VoicesOrigin } from '@/assets/script/type'
 import { getCategory, getRandomInt } from '@/assets/script/utils'
-import { ComputedRef, inject, nextTick, onMounted, reactive, ref, Ref, watch } from 'vue'
+import { infoDate, playTimes, playTimesNow, searchData, voiceList, voices } from '@/store/data'
+import { isShowSearch, playSetting } from '@/store/setting'
+import { nextTick, onMounted, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { Router, useRouter } from 'vue-router'
 
@@ -12,7 +14,6 @@ const CDN = Setting['CDN']
 const useSearch = (btnList: { [name: string]: any }) => {
   const router = useRouter()
 
-  const searchData: SearchData = inject('searchData') as SearchData
   // 需要高亮显示的name
   const highlight = ref('')
 
@@ -63,8 +64,6 @@ const useSearch = (btnList: { [name: string]: any }) => {
   })
 
   initRouter(searchData, router)
-
-  return { searchData, highlight }
 }
 
 const initRouter = (searchData: SearchData, router: Router) => {
@@ -78,8 +77,6 @@ const initRouter = (searchData: SearchData, router: Router) => {
         }, 500)
       })
     }
-
-    const isShowSearch = inject('isShowSearch') as Ref<boolean>
 
     router.isReady()
       .then(() => {
@@ -98,24 +95,14 @@ const initRouter = (searchData: SearchData, router: Router) => {
   })
 }
 
-const getBtnList = () => {
-  // 所有按钮的引用
-  const btnList: { [name: string]: any } = reactive({})
-  const setBtnList = (name: string, el: any) => {
-    btnList[name] = el
-  }
-
-  return { btnList, setBtnList }
+const setPlayCount = () => {
+  ++playTimes.value
+  ++playTimesNow.value
+  localStorage.setItem('play', playTimes.value.toString())
 }
 
 const createPlayer = (btnList: { [name: string]: any }) => {
   const { t, te, locale } = useI18n()
-
-  const playSetting: PlaySetting = inject('playSetting') as PlaySetting
-
-  const voices = inject('voices') as ComputedRef<Voices>
-  const voiceList = inject('voiceList', ref([]) as Ref<VoicesItem[]>)
-  const infoDate = inject('infoDate') as Ref<Mark | null>
 
   if ('mediaSession' in navigator) {
     navigator.mediaSession.setActionHandler('nexttrack', () => {
@@ -151,7 +138,7 @@ const createPlayer = (btnList: { [name: string]: any }) => {
   const play = (voice: VoicesItem) => {
     // 可在此处增加播放统计相关代码
     if (!playSetting.overlap) {
-      if (playerList.has('once')) (playerList.get('once') as Player).audio.pause()
+      stopPlay()
       if (playSetting.nowPlay && playSetting.nowPlay.name === voice.name) {
         clearTimeout(timer)
         timer = setTimeout(() => {
@@ -184,7 +171,7 @@ const createPlayer = (btnList: { [name: string]: any }) => {
     if (key === 'once' && playerList.has(key)) {
       playerList.get(key)!.audio.oncanplay = null
     }
-    const path = process.env.NODE_ENV === 'production' && CDN ? `${CDN}/${voice.path}` : `voices/${voice.path}`
+    const path = getDownloadUrl(voice.path)
     playerList.set(key, {
       name: voice.name,
       audio: new Audio(path)
@@ -206,6 +193,8 @@ const createPlayer = (btnList: { [name: string]: any }) => {
       }
     }
     playerList.get(key)!.audio.oncanplay = () => {
+      setPlayCount()
+
       playSetting.loading = false
       const duration = playerList.get(key)!.audio.duration
       let currentTime = 0
@@ -268,24 +257,15 @@ const createPlayer = (btnList: { [name: string]: any }) => {
     } else if (playSetting.loop === 2) {
       let list: VoicesItem[] = []
       if (!playSetting.showInfo) {
-        list = (voices.value as VoicesCategory[]).find(voicesCategory => {
-          if (voicesCategory.name === voice.category) {
-            return voicesCategory.voiceList
-          }
-        })!.voiceList
+        const category = (voices.value as Voices<'c'>).find(voicesCategory => voicesCategory.name === voice.category && voicesCategory.voiceList)
+        list = category ? category.voiceList : []
       } else {
         if (voice.mark && voice.mark.title) {
-          list = (voices.value as VoicesOrigin[]).find(mark => {
-            if (mark.title === voice.mark!.title) {
-              return mark.voiceList
-            }
-          })!.voiceList
+          const origin = (voices.value as Voices<'o'>).find(mark => voice.mark && mark.title === voice.mark.title && mark.voiceList)
+          list = origin ? origin.voiceList : []
         } else {
-          list = (voices.value as VoicesOrigin[]).find(mark => {
-            if (mark.title === 'unknown') {
-              return mark.voiceList
-            }
-          })!.voiceList
+          const origin = (voices.value as Voices<'o'>).find(mark => mark.title === 'unknown' && mark.voiceList)
+          list = origin ? origin.voiceList : []
         }
       }
       const nextVoice = list[getLoopIndex(voice, list)]
@@ -344,6 +324,10 @@ const createPlayer = (btnList: { [name: string]: any }) => {
   }
 
   mitt.on(EVENT.stopPlay, () => {
+    stopPlay()
+  })
+
+  const stopPlay = () => {
     clearTimeout(timer)
     for (const key of playerList.keys()) {
       playerList.get(key)!.audio.pause()
@@ -359,7 +343,7 @@ const createPlayer = (btnList: { [name: string]: any }) => {
     if ('mediaSession' in navigator) {
       navigator.mediaSession.playbackState = 'none'
     }
-  })
+  }
 
   /**
    * 是否需要显示分类
@@ -415,6 +399,27 @@ const createPlayer = (btnList: { [name: string]: any }) => {
     return usePicture && Boolean(usePicture[locale.value]) ? `/voices/img/${usePicture[locale.value]}` : undefined
   }
 
+  const getDownloadUrl = (url: string) => {
+    return process.env.NODE_ENV === 'production' && CDN ? `${CDN}/${url}` : `voices/${url}`
+  }
+
+  /**
+   * 返回带时间点的B站视频URL
+   * @deprecated
+   */
+  const getUrl = (mark?: Mark): string | undefined => {
+    if (mark && mark.url && mark.time) {
+      const timeList = mark.time.split('~')[0].split(':')
+      let time = ''
+      if (timeList.length === 2) {
+        time = `?t=${timeList[0]}m${timeList[1]}s`
+      } else if (timeList.length === 3) {
+        time = `?t=${timeList[0]}h${timeList[1]}m${timeList[2]}s`
+      }
+      return mark.url + time
+    }
+  }
+
   return {
     playSetting,
     voices,
@@ -423,7 +428,8 @@ const createPlayer = (btnList: { [name: string]: any }) => {
     isShowVoice,
     isShowTime,
     isShowNewIcon,
-    getPicUrl
+    getPicUrl,
+    getDownloadUrl
   }
 }
 
@@ -442,7 +448,6 @@ const initListen = (btnList: { [name: string]: any }) => {
 
 export {
   useSearch,
-  getBtnList,
   createPlayer,
   initListen
 }

@@ -1,6 +1,7 @@
-/* eslint-disable @typescript-eslint/camelcase */
 const path = require('path')
 const Check = require('./plugins/check')
+
+process.env.VUE_APP_LAST_UPDATE = Date.now()
 
 /**
  *  @typedef { import("@vue/cli-service").ProjectOptions } Options
@@ -11,7 +12,9 @@ module.exports = {
   css: {
     loaderOptions: {
       stylus: {
-        import: [path.join(__dirname, './setting/color.styl')]
+        stylusOptions: {
+          import: [path.join(__dirname, './setting/color.styl')]
+        }
       }
     }
   },
