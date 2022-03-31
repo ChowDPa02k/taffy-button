@@ -15,12 +15,13 @@ jobs:
     - uses: actions/checkout@v3
     - uses: actions/setup-node@v2
       with:
-        node-version: '14'
-        cache: 'yarn'
+        node-version: '16'
+        cache: 'npm'
     - name: Build site
       run: |
-        yarn install
-        yarn build
+        npm install -g npm@8.5.2
+        npm i
+        npm run build
     - name: upload files to OSS
       uses: fangbinwei/aliyun-oss-website-action@v1
       with:
