@@ -16,10 +16,11 @@ jobs:
     - uses: actions/setup-node@v2
       with:
         node-version: '16'
+        cache: 'yarn'
     - name: Build site
       run: |
-        npm install
-        npm run build
+        yarn install
+        yarn build
     - name: upload files to OSS
       uses: fangbinwei/aliyun-oss-website-action@v1
       with:
