@@ -174,7 +174,7 @@ onMounted(() => {
   position sticky
   top 0
   height 48px
-  background linear-gradient(to right, $main-color, $sub-color), rgba(255, 255, 255, 0.8)
+  background linear-gradient(to right, $main-color, $main-color), rgba(255, 255, 255, .8)
 
   *
     flex-shrink 0
@@ -192,10 +192,11 @@ onMounted(() => {
     animation-delay 0.5s
 
   .title
-    color #eee
+    color #fff
     font-size 20px
     margin-right 10px
     user-select none
+    font-weight 600
 
   .search-btn
     width 30px

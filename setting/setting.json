@@ -1,20 +1,20 @@
 {
   "name": {
     "CN": {
-      "title": "语音按钮",
+      "title": "粉毛按钮",
       "fullName": ""
     },
     "EN": {
-      "title": "Voives Button",
+      "title": "Taffy Button",
       "fullName": ""
     }
   },
   "readme": "",
   "header": {
-    "icon": "img/logo.svg",
-    "youtube": "",
-    "twitter": "",
-    "bilibili": ""
+    "icon": "img/taffy_mua.png",
+    "youtube": "https://www.youtube.com/channel/UC-WTKBWDsp0PFcGmmuO7svg",
+    "twitter": "https://twitter.com/AceTaffy812",
+    "bilibili": "https://space.bilibili.com/1265680561"
   },
   "link": [
     {
@@ -31,17 +31,17 @@
   "footer": {
     "author": [
       {
-        "name": "Blacktunes",
+        "name": "Blacktunes & 雏草姬",
         "url": "https://github.com/blacktunes"
       }
     ],
     "info": [
-      ""
+      "关注永雏塔菲喵，关注永雏塔菲谢谢喵！"
     ],
     "githubUrl": "https://github.com/blacktunes/voices-button"
   },
   "console": {
-    "text": "https://github.com/blacktunes/voices-button",
+    "text": "关注永雏塔菲喵，关注永雏塔菲谢谢喵！",
     "size": "",
     "color": "",
     "img": "",
