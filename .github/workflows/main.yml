@@ -19,8 +19,7 @@ jobs:
         cache: 'npm'
     - name: Build site
       run: |
-        npm install -g npm@8.5.2
-        npm i
+        npm insatall --legacy-peer-deps
         npm run build
     - name: upload files to OSS
       uses: fangbinwei/aliyun-oss-website-action@v1
