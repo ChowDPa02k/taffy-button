@@ -1,9 +1,58 @@
 [
   {
-    "name": "名言",
+    "name": "怪叫小塔菲",
     "translate": {
-      "zh-CN": "猫猫名言~",
-      "en-US": "Witticisms~"
+      "zh-CN": "怪叫小塔菲~",
+      "en-US": "Strange Sounds~"
+    }
+  },
+  {
+    "name": "怪话",
+    "translate": {
+      "zh-CN": "怪话~",
+      "en-US": "Weird talks~"
+    }
+  },
+  {
+    "name": "攻击性",
+    "translate": {
+      "zh-CN": "攻击性小塔菲",
+      "en-US": "Aggressive Taffy~"
+    }
+  },
+  {
+    "name": "经典名言",
+    "translate": {
+      "zh-CN": "cfm名言~",
+      "en-US": "Classic~"
+    }
+  },
+  {
+    "name": "尿频小塔菲",
+    "translate": {
+      "zh-CN": "尿频小塔菲",
+      "en-US": "Pee Time~"
+    }
+  },
+  {
+    "name": "尖叫小塔菲",
+    "translate": {
+      "zh-CN": "尖叫小塔菲",
+      "en-US": "Screams~"
+    }
+  },
+  {
+    "name": "哭泣小塔菲",
+    "translate": {
+      "zh-CN": "哭泣小塔菲",
+      "en-US": "Weeps~"
+    }
+  },
+  {
+    "name": "可爱小塔菲",
+    "translate": {
+      "zh-CN": "可爱小塔菲",
+      "en-US": "Cute Taffy~"
     }
   }
 ]
