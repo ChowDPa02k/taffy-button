@@ -1,6 +1,6 @@
 [
   {
-    "name": "怪叫小塔菲",
+    "name": "怪叫",
     "translate": {
       "zh-CN": "怪叫小塔菲~",
       "en-US": "Strange Sounds~"
@@ -28,31 +28,38 @@
     }
   },
   {
-    "name": "尿频小塔菲",
+    "name": "尿频",
     "translate": {
       "zh-CN": "尿频小塔菲",
       "en-US": "Pee Time~"
     }
   },
   {
-    "name": "尖叫小塔菲",
+    "name": "尖叫",
     "translate": {
       "zh-CN": "尖叫小塔菲",
       "en-US": "Screams~"
     }
   },
   {
-    "name": "哭泣小塔菲",
+    "name": "哭泣",
     "translate": {
       "zh-CN": "哭泣小塔菲",
       "en-US": "Weeps~"
     }
   },
   {
-    "name": "可爱小塔菲",
+    "name": "可爱",
     "translate": {
       "zh-CN": "可爱小塔菲",
       "en-US": "Cute Taffy~"
+    }
+  },
+  {
+    "name": "海鸥",
+    "translate": {
+      "zh-CN": "海鸥小塔菲",
+      "en-US": "Sea gull Taffy~"
     }
   }
 ]
