@@ -11,7 +11,10 @@
         </div>
         <div class="info">
           <template v-for="(item, index) in info" :key="index">
-            <div v-html="item"></div>
+            <div>
+            <a :href="item.url" target="_blank" v-if="item.url">{{ item.name }}</a>
+            <div v-else>{{item.name}}</div>
+            </div>
           </template>
           <img style="margin: 5px 5px 0px -2px" alt="GitHub Repo stars" :src="lastUpdate" />
         </div>

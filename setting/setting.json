@@ -31,14 +31,21 @@
   "footer": {
     "author": [
       {
-        "name": "Blacktunes & 雏草姬",
+        "name": "Blacktunes",
         "url": "https://github.com/blacktunes"
+      },
+      {
+        "name": "一只雏草姬",
+        "url": "https://github.com/ChowDPa02k"
       }
     ],
     "info": [
-      "关注永雏塔菲喵，关注永雏塔菲谢谢喵！"
+      {
+        "name":"记得改成备案号",
+        "url": "https://beian.miit.gov.cn/"
+      }
     ],
-    "githubUrl": "https://github.com/blacktunes/voices-button"
+    "githubUrl": "https://github.com/ChowDPa02k/taffy-button"
   },
   "console": {
     "text": "关注永雏塔菲喵，关注永雏塔菲谢谢喵！",

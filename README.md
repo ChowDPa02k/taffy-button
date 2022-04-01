@@ -277,10 +277,10 @@ TODO：期望能够有开发者实现在npm build时通过node脚本自动根据
 
 ### 部署新内容
 
-将生成的`voices.json`中的字典数据拷贝并追加到以下文件的末尾：
+将生成的`voices.json`放入以下目录，可任意重命名：
 
 ```
-./setting/translate/voices.json
+./setting/translate/
 ```
 
 将音频文件**不带文件夹地**直接移动到以下目录中：
