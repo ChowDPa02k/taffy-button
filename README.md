@@ -221,6 +221,8 @@ $ yt-dlp -f 31+2 [url]
 
 本人使用Audition，切片先保存为WAV无损格式，然后再使用小丸工具箱转码为128K QAAC。
 
+cfm的直播间音频Dynamic控制尽显专业水准，在这里我建议先把整条音轨+6dB再进行切片处理
+
 **确保你的音频切片码率低于128K以节省网络资源，因为服务器流量消耗花的是我的钱**
 
 ![](https://geelao-oss.oss-cn-hangzhou.aliyuncs.com/db/202203311739217.png)
@@ -244,8 +246,8 @@ e.g.
 
 e.g.
 Cherry就是狗变的-Cherry is a dog-攻击性-20220329_AAC.m4a
-锵锵-Clang-可爱小塔菲-20220329_AAC.m4a
-呜呜呜-555-哭泣小塔菲-20220329_AAC.m4a
+锵锵-Clang-可爱-20220329_AAC.m4a
+呜呜呜-555-哭泣-20220329_AAC.m4a
 开什么玩笑要吐了-What a joke I'm going to throw up-经典名言-20220329_AAC.m4a
 ```
 
