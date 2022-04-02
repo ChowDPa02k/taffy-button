@@ -225,7 +225,7 @@ cfm的直播间音频Dynamic控制尽显专业水准，在这里我建议先把�
 
 **确保你的音频切片码率低于128K以节省网络资源，因为服务器流量消耗花的是我的钱**
 
-![](https://geelao-oss.oss-cn-hangzhou.aliyuncs.com/db/202203311739217.png)
+![](https://geelao-oss.oss-cn-hangzhou.aliyuncs.com/db/202204021958607.png)
 
 然后，**！必须严格按照以下路径规范保存你的音频切片！**：
 
@@ -253,13 +253,7 @@ Cherry就是狗变的-Cherry is a dog-攻击性-20220329_AAC.m4a
 
 ### 生成配置文件
 
-如果你按照上述规范整理好文件后，在项目文件夹的
-
-```
-./public/voices/work
-```
-
-中，有一个`voicesListGenerator.py`脚本，用于**根据文件路径名**自动生成配置文件。
+如果你按照上述规范整理好文件后，在项目的根目录下，有一个`voicesListGenerator.py`脚本，用于**根据文件路径名**自动生成配置文件。
 
 将该脚本放在你的工作文件夹中，然后运行：
 
