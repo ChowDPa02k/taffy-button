@@ -1,5 +1,5 @@
 # workflow的名称，会显示在工作流运行页面
-name: MainWorkflow
+name: Upload to OSS
 
 # 工作流执行的契机：push表示每次push代码之后都会执行
 on: [push]

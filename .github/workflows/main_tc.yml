@@ -1,0 +1,39 @@
+name: Build & Upload to TC
+
+on:
+  push:
+    branches: [master]
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+
+      - name: Init node environment
+        uses: actions/setup-node@v2
+        with:
+          node-version: "16"
+          cache: "npm"
+
+      - name: Build site
+        run: |
+          npm install --legacy-peer-deps
+          npm run build
+
+      - name: Deploy static to Tencent CloudBase
+        id: deployStatic
+        uses: TencentCloudBase/cloudbase-action@v1.1.1
+        with:
+          # 云开发的访问密钥 secretId 和 secretKey
+          secretId: ${{ secrets.SECRET_ID }}
+          secretKey: ${{ secrets.SECRET_KEY }}
+          # 云开发的环境id
+          envId: ${{ secrets.ENV_ID }}
+          # Github 项目静态文件的路径
+          staticSrcPath: dist
