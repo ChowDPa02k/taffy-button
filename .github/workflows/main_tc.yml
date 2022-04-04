@@ -28,7 +28,7 @@ jobs:
 
       - name: Deploy static to Tencent CloudBase
         id: deployStatic
-        uses: TencentCloudBase/cloudbase-action@v2
+        uses: TencentCloudBase/cloudbase-action@v1.1.1
         with:
           # 云开发的访问密钥 secretId 和 secretKey
           secretId: ${{ secrets.SECRET_ID }}
