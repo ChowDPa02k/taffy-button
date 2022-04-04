@@ -33,7 +33,7 @@ jobs:
         env:
           secretId: ${{ secrets.SECRET_ID }}
           secretKey: ${{ secrets.SECRET_KEY }}
-        run: tcb login --apiKeyId "$SECRET_ID" --apiKey "$SECRET_KEY"
+        run: tcb login --apiKeyId "$secretId" --apiKey "$secretKey"
           
       - name: Deploy dist to Tencent CloudBase
         env:
