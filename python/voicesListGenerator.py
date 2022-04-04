@@ -4,6 +4,7 @@ from datetime import datetime
 import json
 
 voices = []
+count = {}
 
 for root, dirs, files in os.walk('.'):
     # 分割目录，获取视频标题和BV号
@@ -16,11 +17,19 @@ for root, dirs, files in os.walk('.'):
         (fn, ext) = os.path.splitext(fp)
         # 只取AAC，后续可以自行修改成你的格式
         if ext == '.m4a':
-            # 分割文件名，获取信息，生成字典
+            # 分割文件名，获取信息
             fileInfo = re.split('-|_', fn)
+            # vue中按钮渲染的key与name绑定，如果出现key重复会导致页面显示的时候出现错位问题
+            if fileInfo[0] in count:
+                resourceName = fileInfo[0] + str(count[fileInfo[0]])
+                count[fileInfo[0]] = count[fileInfo[0]] + 1
+            else:
+                resourceName = fileInfo[0]
+                count[fileInfo[0]] = 1
+            # 生成字典
             voices.append({
                 'name':
-                fileInfo[0],
+                resourceName,
                 'path':
                 fp,
                 'date':
