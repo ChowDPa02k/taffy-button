@@ -26,14 +26,16 @@ jobs:
           npm install --legacy-peer-deps
           npm run build
 
-      - name: Deploy static to Tencent CloudBase
-        id: deployStatic
-        uses: TencentCloudBase/cloudbase-action@v1.1.1
-        with:
-          # 云开发的访问密钥 secretId 和 secretKey
+      - name: Install CloudBase-Cli
+        run: npm install -g @cloudbase/cli
+    
+      - name: Login to Tencent CloudBase
+        env:
           secretId: ${{ secrets.SECRET_ID }}
           secretKey: ${{ secrets.SECRET_KEY }}
-          # 云开发的环境id
-          envId: ${{ secrets.ENV_ID }}
-          # Github 项目静态文件的路径
-          staticSrcPath: dist
+        run: tcb login --apiKeyId "$secretId" --apiKey "$secretKey"
+          
+      - name: Deploy dist to Tencent CloudBase
+        env:
+          ENV_ID: ${{secrets.ENV_ID}}
+        run: tcb hosting deploy ./dist . -e "$ENV_ID" -r gz
