@@ -1,0 +1,21 @@
+[
+    {
+        "name": "【标准海鸥叫】",
+        "path": "【标准海鸥叫】-Standard Sea Gull-海鸥-20220412_AAC.m4a",
+        "date": "2022-04-12",
+        "translate": {
+            "zh-CN": "【标准海鸥叫】",
+            "en-US": "Standard Sea Gull"
+        },
+        "usePicture": {
+            "zh-CN": "海鸥.jpg",
+            "en-US": "海鸥.jpg"
+        },
+        "category": "海鸥",
+        "mark": {
+            "title": "喵 2022年4月12日20点场",
+            "time": "",
+            "url": "https://www.bilibili.com/video/BV1Nr4y1H7ts"
+        }
+    }
+]
