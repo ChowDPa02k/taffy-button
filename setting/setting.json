@@ -1,7 +1,7 @@
 {
   "name": {
     "CN": {
-      "title": "粉毛按钮",
+      "title": "塔菲按钮",
       "fullName": ""
     },
     "EN": {
@@ -41,7 +41,7 @@
     ],
     "info": [
       {
-        "name":"记得改成备案号",
+        "name":"粤ICP备2022042304号",
         "url": "https://beian.miit.gov.cn/"
       }
     ],
