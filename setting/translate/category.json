@@ -61,5 +61,12 @@
       "zh-CN": "海鸥小塔菲",
       "en-US": "Sea gull Taffy~"
     }
+  },
+  {
+    "name": "FX",
+    "translate": {
+      "zh-CN": "B音效",
+      "en-US": "Effects"
+    }
   }
 ]
