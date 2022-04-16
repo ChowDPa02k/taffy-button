@@ -68,5 +68,12 @@
       "zh-CN": "B音效",
       "en-US": "Effects"
     }
+  },
+  {
+    "name": "test",
+    "translate": {
+      "zh-CN": "AI人声提取测试",
+      "en-US": "Spleeter seperate test"
+    }
   }
 ]
