@@ -1,26 +1,5 @@
 [
   {
-    "name": "怪叫",
-    "translate": {
-      "zh-CN": "怪叫小塔菲~",
-      "en-US": "Strange Sounds~"
-    }
-  },
-  {
-    "name": "怪话",
-    "translate": {
-      "zh-CN": "怪话~",
-      "en-US": "Weird talks~"
-    }
-  },
-  {
-    "name": "攻击性",
-    "translate": {
-      "zh-CN": "攻击性小塔菲",
-      "en-US": "Aggressive Taffy~"
-    }
-  },
-  {
     "name": "经典名言",
     "translate": {
       "zh-CN": "cfm名言~",
@@ -28,24 +7,10 @@
     }
   },
   {
-    "name": "尿频",
+    "name": "怪话",
     "translate": {
-      "zh-CN": "尿频小塔菲",
-      "en-US": "Pee Time~"
-    }
-  },
-  {
-    "name": "尖叫",
-    "translate": {
-      "zh-CN": "【耳膜损伤警告】尖叫小塔菲",
-      "en-US": "Screams~"
-    }
-  },
-  {
-    "name": "哭泣",
-    "translate": {
-      "zh-CN": "哭泣小塔菲",
-      "en-US": "Weeps~"
+      "zh-CN": "怪话~",
+      "en-US": "Weird talks~"
     }
   },
   {
@@ -60,6 +25,41 @@
     "translate": {
       "zh-CN": "海鸥小塔菲",
       "en-US": "Sea gull Taffy~"
+    }
+  },
+  {
+    "name": "攻击性",
+    "translate": {
+      "zh-CN": "攻击性小塔菲",
+      "en-US": "Aggressive Taffy~"
+    }
+  },
+  {
+    "name": "尿频",
+    "translate": {
+      "zh-CN": "尿频小塔菲",
+      "en-US": "Pee Time~"
+    }
+  },
+  {
+    "name": "怪叫",
+    "translate": {
+      "zh-CN": "怪叫小塔菲~",
+      "en-US": "Strange Sounds~"
+    }
+  },
+  {
+    "name": "哭泣",
+    "translate": {
+      "zh-CN": "哭泣小塔菲",
+      "en-US": "Weeps~"
+    }
+  },
+  {
+    "name": "尖叫",
+    "translate": {
+      "zh-CN": "【耳膜损伤警告】尖叫小塔菲",
+      "en-US": "Screams~"
     }
   },
   {
