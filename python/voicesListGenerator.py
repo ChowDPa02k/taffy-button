@@ -52,5 +52,5 @@ for root, dirs, files in os.walk('.'):
             })
 
 # 写入Json，拿来即用
-with open('voices.json', 'w', encoding='utf-8') as f:
+with open('voices_3c.json', 'w', encoding='utf-8') as f:
     json.dump(voices, f, ensure_ascii=False)
