@@ -1,0 +1,46 @@
+name: Build & Upload to FTP
+
+on:
+  push:
+    branches: [master]
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+
+      - name: Init node environment
+        uses: actions/setup-node@v2
+        with:
+          node-version: "16"
+          cache: "npm"
+
+      - name: Build site
+        run: |
+          npm install --legacy-peer-deps
+          npm run build
+
+      - name: upload-ftp
+        # You may pin to the exact commit or the version.
+        # uses: sebastianpopp/ftp-action@eb75c5cb29d23ee4a729720a27dfb66403cb0f6d
+        uses: sebastianpopp/ftp-action@v2.0.0
+        with:
+          # FTP host
+          host: ${{ secrets.FTP_HOST }}
+          # FTP user
+          user: ${{ secrets.FTP_USER }}
+          # FTP password
+          password: ${{ secrets.FTP_SECRET }}
+          # Force SSL encryption
+          forceSsl: false
+          # Local directory
+          localDir: "dist"
+          # Remote directory
+          remoteDir: "."
+          
