@@ -2,8 +2,7 @@
 node_modules
 /dist
 /test
-/workspace
-/workspace_test
+/workspace*
 
 # local env files
 .env.local
