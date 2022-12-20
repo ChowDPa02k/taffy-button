@@ -30,17 +30,13 @@ jobs:
         # You may pin to the exact commit or the version.
         # uses: sebastianpopp/ftp-action@eb75c5cb29d23ee4a729720a27dfb66403cb0f6d
         uses: sebastianpopp/ftp-action@v2.0.0
-        env:
-          ftpHost: ${{ secrets.FTP_HOST }}
-          ftpUser: ${{ secrets.FTP_USER }}
-          ftpSecret: ${{ secrets.FTP_SECRET }}
         with:
           # FTP host
-          host: "$ftpHost"
+          host: ${{ secrets.FTP_HOST }}
           # FTP user
-          user: "$ftpUser"
+          user: ${{ secrets.FTP_USER }}
           # FTP password
-          password: "$ftpSecret"
+          password: ${{ secrets.FTP_SECRET }}
           # Force SSL encryption
           forceSsl: false
           # Local directory
